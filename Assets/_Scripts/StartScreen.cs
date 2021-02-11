@@ -26,4 +26,9 @@ public class StartScreen : MonoBehaviour
     {
         SceneManager.LoadScene("GameOver");
     }
+
+    public void ShowOptions()
+    {
+        SceneManager.LoadScene("OptionsScreen");
+    }
 }
