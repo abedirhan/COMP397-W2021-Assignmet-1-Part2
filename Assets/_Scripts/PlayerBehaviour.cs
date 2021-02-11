@@ -64,7 +64,10 @@ public class PlayerBehaviour : MonoBehaviour
         {
             Debug.Log("Collison Detected");
             SceneManager.LoadScene("GameOver");
+           
         }
        
     }
+
+  
 }
