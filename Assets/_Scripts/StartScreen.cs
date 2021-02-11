@@ -31,4 +31,9 @@ public class StartScreen : MonoBehaviour
     {
         SceneManager.LoadScene("OptionsScreen");
     }
+
+    public void GoToStartScreen()
+    {
+        SceneManager.LoadScene("Start");
+    }
 }
