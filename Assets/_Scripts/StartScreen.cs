@@ -26,4 +26,14 @@ public class StartScreen : MonoBehaviour
     {
         SceneManager.LoadScene("GameOver");
     }
+
+    public void ShowOptions()
+    {
+        SceneManager.LoadScene("OptionsScreen");
+    }
+
+    public void GoToStartScreen()
+    {
+        SceneManager.LoadScene("Start");
+    }
 }
