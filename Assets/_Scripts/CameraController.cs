@@ -9,6 +9,8 @@ public class CameraController : MonoBehaviour
 
     private float XRotation = 0.0f;
 
+    public bool paused=false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,11 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (paused)
+        {
+            return;
+        }
+
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
