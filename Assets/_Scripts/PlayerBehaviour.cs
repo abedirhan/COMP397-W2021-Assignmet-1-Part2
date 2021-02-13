@@ -62,9 +62,11 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("Collison Detected");
+            // Debug.Log("Collison Detected");
             SceneManager.LoadScene("GameOver");
-           
+            Cursor.lockState = CursorLockMode.Confined;
+
+
         }
        
     }
