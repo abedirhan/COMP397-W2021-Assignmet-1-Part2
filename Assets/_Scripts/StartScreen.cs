@@ -36,4 +36,8 @@ public class StartScreen : MonoBehaviour
     {
         SceneManager.LoadScene("Start");
     }
+
+    public void GoToLevel2() {
+        SceneManager.LoadScene("Level2");
+    }
 }

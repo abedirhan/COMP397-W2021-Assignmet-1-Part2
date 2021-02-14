@@ -18,6 +18,7 @@ public class PlayerBehaviour : MonoBehaviour
     public Vector3 velocity;
     public bool isGrounded;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +51,16 @@ public class PlayerBehaviour : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+       
+        if (velocity.magnitude > 2f && GetComponent<AudioSource>().isPlaying == false)
+        {
+            GetComponent<AudioSource>().Play();
+            Debug.Log("Audio is playing");
+        }
+
+        
+
+
     }
 
     void OnDrawGizmos()
@@ -62,9 +73,11 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("Collison Detected");
+            // Debug.Log("Collison Detected");
             SceneManager.LoadScene("GameOver");
-           
+            Cursor.lockState = CursorLockMode.Confined;
+
+
         }
        
     }
