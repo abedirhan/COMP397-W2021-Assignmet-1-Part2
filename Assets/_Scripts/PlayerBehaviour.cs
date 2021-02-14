@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Scripts related to main character movement and attacking
+/// attacking is not implemented in this iteration but will be implemented here later
+/// </summary>
 public class PlayerBehaviour : MonoBehaviour
 {
     public CharacterController controller;

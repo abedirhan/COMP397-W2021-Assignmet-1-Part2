@@ -2,8 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Scripts related to controlling the third person perspective camera
+/// </summary>
 public class CameraController : MonoBehaviour
 {
+    /// <summary>
+    /// Class variables are written here
+    /// </summary>
     public float mouseSensitivity = 1000.0f;
     public Transform playerBody;
 
@@ -20,6 +26,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // While pausing, return from this method
         if (paused)
         {
             return;

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Scipts related to pausing the game play
+/// </summary>
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
@@ -25,6 +28,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    // Do this on resume
     public void Resume()
     {
         Camera.main.GetComponent<CameraController>().paused = false;
@@ -34,6 +38,7 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
     }
 
+    // do this on pause
     void Pause()
     {
         Camera.main.GetComponent<CameraController>().paused = true;
@@ -43,6 +48,7 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
     }
 
+    // load menu
     public void LoadMenu(){
         Time.timeScale = 1f;
         SceneManager.LoadScene("Start");
