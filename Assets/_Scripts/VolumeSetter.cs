@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+/// <summary>
+/// Everything related to sound will be written here
+/// </summary>
 public class VolumeSetter : MonoBehaviour
 {
 public AudioMixer mixer;
