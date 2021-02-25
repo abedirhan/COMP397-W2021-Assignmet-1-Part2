@@ -15225,7 +15225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &961663397
 Transform:
   m_ObjectHideFlags: 0
@@ -34664,6 +34664,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3486416406902478074, guid: 0d91a3deefc1c44468d5d3f8bd0ffd95, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3486416406902478075, guid: 0d91a3deefc1c44468d5d3f8bd0ffd95, type: 3}
       propertyPath: isGrounded
       value: 0
@@ -34696,6 +34700,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.01481385
       objectReference: {fileID: 0}
+    - target: {fileID: 3486416407441112891, guid: 0d91a3deefc1c44468d5d3f8bd0ffd95, type: 3}
+      propertyPath: playerBody
+      value: 
+      objectReference: {fileID: 427017911}
     - target: {fileID: 3486416407441112893, guid: 0d91a3deefc1c44468d5d3f8bd0ffd95, type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 191
