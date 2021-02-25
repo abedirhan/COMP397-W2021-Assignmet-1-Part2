@@ -22,11 +22,15 @@ public class PlayerBehaviour : MonoBehaviour
     public Vector3 velocity;
     public bool isGrounded;
 
+    [Header("Minimap")]
+    public GameObject miniMap;
+
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        miniMap.SetActive(false);
     }
 
     // Update is called once per frame - once every 16.6666ms
@@ -61,10 +65,12 @@ public class PlayerBehaviour : MonoBehaviour
             GetComponent<AudioSource>().Play();
             Debug.Log("Audio is playing");
         }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            // toggle minimap on and off
+            miniMap.SetActive(!miniMap.activeInHierarchy);
 
-        
-
-
+        }
     }
 
     void OnDrawGizmos()
@@ -80,8 +86,6 @@ public class PlayerBehaviour : MonoBehaviour
             // Debug.Log("Collison Detected");
             SceneManager.LoadScene("GameOver");
             Cursor.lockState = CursorLockMode.Confined;
-
-
         }
        
     }
