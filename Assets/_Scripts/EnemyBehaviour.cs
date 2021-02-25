@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// Scripts related to enemy behavior is writen here
+/// </summary>
 public class EnemyBehaviour : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
@@ -17,6 +20,7 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Main player as a target for enemies
         navMeshAgent.SetDestination(player.position);
     }
 }
