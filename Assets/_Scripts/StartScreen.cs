@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This scripts is used for moving between scenes
+/// </summary>
 public class StartScreen : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -35,5 +38,9 @@ public class StartScreen : MonoBehaviour
     public void GoToStartScreen()
     {
         SceneManager.LoadScene("Start");
+    }
+
+    public void GoToLevel2() {
+        SceneManager.LoadScene("Level2");
     }
 }

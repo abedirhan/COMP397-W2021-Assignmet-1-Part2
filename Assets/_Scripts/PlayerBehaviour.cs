@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Scripts related to main character movement and attacking
+/// attacking is not implemented in this iteration but will be implemented here later
+/// </summary>
 public class PlayerBehaviour : MonoBehaviour
 {
     public CharacterController controller;
@@ -18,10 +22,15 @@ public class PlayerBehaviour : MonoBehaviour
     public Vector3 velocity;
     public bool isGrounded;
 
+    [Header("Minimap")]
+    public GameObject miniMap;
+
+
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        miniMap.SetActive(false);
     }
 
     // Update is called once per frame - once every 16.6666ms
@@ -50,6 +59,18 @@ public class PlayerBehaviour : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+       
+        if (velocity.magnitude > 2f && GetComponent<AudioSource>().isPlaying == false)
+        {
+            GetComponent<AudioSource>().Play();
+            Debug.Log("Audio is playing");
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            // toggle minimap on and off
+            miniMap.SetActive(!miniMap.activeInHierarchy);
+
+        }
     }
 
     void OnDrawGizmos()
@@ -62,9 +83,9 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("Collison Detected");
+            // Debug.Log("Collison Detected");
             SceneManager.LoadScene("GameOver");
-           
+            Cursor.lockState = CursorLockMode.Confined;
         }
        
     }

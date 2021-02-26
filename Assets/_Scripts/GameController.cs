@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using GUI = UnityEngine.GUI;
 
+/// <summary>
+/// Scripts related to controlling the flow of the game
+/// Not implemented anywhere now but will be implemented in future iterations
+/// </summary>
 public class GameController : MonoBehaviour
 {
     void OnGUI()
