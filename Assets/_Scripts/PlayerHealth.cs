@@ -29,6 +29,11 @@ public class PlayerHealth : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             health -= 20;
+            if (health <= 0)
+            {
+                SceneManager.LoadScene("GameOver");
+                Cursor.lockState = CursorLockMode.Confined;
+            }
         }
 
         if (other.gameObject.tag == "coin")
