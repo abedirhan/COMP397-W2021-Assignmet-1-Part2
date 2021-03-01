@@ -27,5 +27,11 @@ public class PlayerHealth : MonoBehaviour
         {
             health -= 5;
         }
+
+        if (other.gameObject.tag == "coin")
+        {
+            health += 10;
+            Destroy(other.gameObject);
+        }
     }
 }
