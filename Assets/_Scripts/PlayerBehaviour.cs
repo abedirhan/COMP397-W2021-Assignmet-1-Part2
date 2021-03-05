@@ -79,16 +79,19 @@ public class PlayerBehaviour : MonoBehaviour
         Gizmos.DrawWireSphere(groundCheck.position, groundRadius);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Enemy")
-        {
-            // Debug.Log("Collison Detected");
-            SceneManager.LoadScene("GameOver");
-            Cursor.lockState = CursorLockMode.Confined;
-        }
-       
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
 
-  
+    //    if (other.gameObject.tag == "Enemy")
+    //    {
+
+    //        SceneManager.LoadScene("GameOver");
+    //        Cursor.lockState = CursorLockMode.Confined;
+
+
+    //    }
+
+    //}
+
+
 }

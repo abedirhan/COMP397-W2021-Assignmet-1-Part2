@@ -14,11 +14,12 @@ public class HealthBarScreenSpaceController : MonoBehaviour
 
     private Slider healthBarSlider;
 
+   
     // Start is called before the first frame update
     void Start()
     {
         healthBarSlider = GetComponent<Slider>();
-        currentHealth = maximumHealth;
+        currentHealth = maximumHealth; 
     }
 
     // Update is called once per frame
@@ -51,4 +52,18 @@ public class HealthBarScreenSpaceController : MonoBehaviour
         healthBarSlider.value = maximumHealth;
         currentHealth = maximumHealth;
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Enemy")
+    //    {
+    //        Debug.Log("LADO");
+    //        // SceneManager.LoadScene("GameOver");
+    //        //Cursor.lockState = CursorLockMode.Confined;
+    //        // healthBarSlider = GetComponent<Slider>();
+    //        TakeDamage(10);
+
+    //    }
+
+    //}
 }
