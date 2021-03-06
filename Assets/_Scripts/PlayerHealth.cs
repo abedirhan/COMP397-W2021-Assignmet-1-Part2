@@ -10,6 +10,9 @@ public class PlayerHealth : MonoBehaviour
     public Slider slider;
     public int coinCollected;
     public Text coinText;
+    public Transform level2SpawnPoint;
+    public AudioSource coinAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +41,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (other.gameObject.tag == "coin")
         {
+            coinAudio.Play();
 
             //health should not be more than 100
             if (health < 100)
@@ -47,11 +51,20 @@ public class PlayerHealth : MonoBehaviour
             coinCollected += 1;
             coinText.text = coinCollected.ToString() + " Coins!"; 
             Destroy(other.gameObject);
-            if (coinCollected >= 20)
+            if (coinCollected >= 2)
             {
                 Debug.Log("Moving to level2" + health);
-                SceneManager.LoadScene("Level2");
-                Cursor.lockState = CursorLockMode.Confined;
+
+                var controller = GameObject.FindWithTag("Player").GetComponent<CharacterController>();
+                // turn controller off
+                controller.enabled = false;
+                // move the player to the spawnpoint
+                GameObject.FindWithTag("Player").transform.position = level2SpawnPoint.position;
+                // turn controller on
+                controller.enabled = true;
+
+                //SceneManager.LoadScene("Level2");
+                //Cursor.lockState = CursorLockMode.Confined;
             }
         }
     }
