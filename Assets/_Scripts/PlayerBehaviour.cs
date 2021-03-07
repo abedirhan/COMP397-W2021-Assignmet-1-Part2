@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/*Game Name: Save the King 
+ Unity game
+ Authors Name: Ayhan SAGLAM--Khadka, Subarna Bijaya- Vu, Hieu Phong
+ Date: 2021/02/10
+*/
 /// <summary>
 /// Scripts related to main character movement and attacking
 /// attacking is not implemented in this iteration but will be implemented here later

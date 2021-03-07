@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/*Game Name: Save the King 
+ Unity game
+ Authors Name: Ayhan SAGLAM--Khadka, Subarna Bijaya- Vu, Hieu Phong
+ Date: 2021/02/10
+*/
 public class PlayerHealth : MonoBehaviour
 {
     public float health;

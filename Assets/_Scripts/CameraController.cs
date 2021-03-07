@@ -2,6 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/*Game Name: Save the King 
+ Unity game
+ Authors Name: Ayhan SAGLAM--Khadka, Subarna Bijaya- Vu, Hieu Phong
+ Date: 2021/02/10
+*/
+
+
+
 /// <summary>
 /// Scripts related to controlling the third person perspective camera
 /// </summary>
