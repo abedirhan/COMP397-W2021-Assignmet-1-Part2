@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/*Game Name: Save the King 
+ Unity game
+ Authors Name: Ayhan SAGLAM -- Khadka, Subarna Bijaya -- Vu, Hieu Phong
+ Date: 2021/02/10
+*/
 /// <summary>
 /// Scripts related to main character movement and attacking
 /// attacking is not implemented in this iteration but will be implemented here later
@@ -21,17 +25,20 @@ public class PlayerBehaviour : MonoBehaviour
 
     public Vector3 velocity;
     public bool isGrounded;
-
     public AudioSource jumpAudio;
+
 
     [Header("Minimap")]
     public GameObject miniMap;
+
+   
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
         miniMap.SetActive(false);
+        
     }
 
     // Update is called once per frame - once every 16.6666ms
@@ -55,23 +62,28 @@ public class PlayerBehaviour : MonoBehaviour
         if (Input.GetButton("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2.0f * gravity);
+            jumpAudio.Play();
+        }
+
+        if (Input.GetButton("Vertical"))
+        {
+            // walkAudio.Play();
+            // Debug.Log("Player is walking");
         }
 
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
        
-        if (velocity.magnitude > 2f && GetComponent<AudioSource>().isPlaying == false)
-        {
-            GetComponent<AudioSource>().Play();
-            Debug.Log("Audio is playing");
-        }
+        
         if (Input.GetKeyDown(KeyCode.M))
         {
             // toggle minimap on and off
             miniMap.SetActive(!miniMap.activeInHierarchy);
 
         }
+
+        
     }
 
     void OnDrawGizmos()
@@ -80,19 +92,5 @@ public class PlayerBehaviour : MonoBehaviour
         Gizmos.DrawWireSphere(groundCheck.position, groundRadius);
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-
-    //    if (other.gameObject.tag == "Enemy")
-    //    {
-
-    //        SceneManager.LoadScene("GameOver");
-    //        Cursor.lockState = CursorLockMode.Confined;
-
-
-    //    }
-
-    //}
-
-
+   
 }

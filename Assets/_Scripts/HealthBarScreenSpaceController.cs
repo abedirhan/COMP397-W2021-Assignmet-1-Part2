@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*Game Name: Save the King 
+ Unity game
+ Authors Name: Ayhan SAGLAM--Khadka, Subarna Bijaya- Vu, Hieu Phong
+ Date: 2021/02/10
+*/
+
 [System.Serializable]
 public class HealthBarScreenSpaceController : MonoBehaviour
 {
@@ -52,18 +58,4 @@ public class HealthBarScreenSpaceController : MonoBehaviour
         healthBarSlider.value = maximumHealth;
         currentHealth = maximumHealth;
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.tag == "Enemy")
-    //    {
-    //        Debug.Log("LADO");
-    //        // SceneManager.LoadScene("GameOver");
-    //        //Cursor.lockState = CursorLockMode.Confined;
-    //        // healthBarSlider = GetComponent<Slider>();
-    //        TakeDamage(10);
-
-    //    }
-
-    //}
 }
