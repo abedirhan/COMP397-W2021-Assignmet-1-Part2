@@ -17,16 +17,17 @@ public class PlayerHealth : MonoBehaviour
     public int coinCollected;
     public Text coinText;
     public Transform level2SpawnPoint;
+    public Transform winSpawnPoint;
     [SerializeField] public AudioSource coinAudio;
     [SerializeField] public AudioSource gameSound;
     [SerializeField] public AudioSource transition;
     public int currentLevel = 1;
     private CharacterController controller;
-    public bool[] destroyedCoinArray  =
+    public bool[] destroyedCoinArray =
                                         { false, false, false, false, false, false, false, false, false, false, false, false, false, false,
-                                          false, false, false, false, false, false, false, false, false, false, false, false, false, false};
+                                          false, false, false, false, false, false, false, false, false, false, false, false, false, false,false};
 
-    
+
 
 
     // Start is called before the first frame update
@@ -44,10 +45,10 @@ public class PlayerHealth : MonoBehaviour
         slider.value = health;
     }
 
-  
+
     private void OnTriggerEnter(Collider other)
     {
-        
+
         if (other.gameObject.tag == "Enemy")
         {
             health -= 20;
@@ -69,7 +70,7 @@ public class PlayerHealth : MonoBehaviour
                 health += 5;
             }
             coinCollected += 1;
-            coinText.text = coinCollected.ToString() + " Coins!"; 
+            coinText.text = coinCollected.ToString() + " Coins!";
             Destroy(other.gameObject);
             if (currentLevel == 1 && coinCollected >= 15)
             {
@@ -90,36 +91,44 @@ public class PlayerHealth : MonoBehaviour
             else if (currentLevel == 2 && coinCollected >= 18)
             {
                 gameSound.Stop();
-                Debug.Log("You won the game");
+                transition.Play();
+                currentLevel = 3;
+                Debug.Log("Moving to Home" + health);
 
-                // Instead of loading gameover scene, we need to create a winning scene or something like pause menu that shows....
-                // "You won the game" with a good graphics  and prompt user to quit or restart the game
-                SceneManager.LoadScene("GameOver");
-                
-                Cursor.lockState = CursorLockMode.Confined;
+                //turn controller off
+                controller.enabled = false;
+                // move the player to the spawnpoint
+                GameObject.FindWithTag("Player").transform.position = winSpawnPoint.position;
+                // turn controller on
+                controller.enabled = true;
+                gameSound.Play();
+            }
+            else if (currentLevel == 3 && coinCollected >= 19)
+            {
+                gameSound.Stop();
+                SceneManager.LoadScene("GameWon");
+                Cursor.lockState = CursorLockMode.None;
+                Debug.Log("You won the game");
             }
         }
-
-        
-        
     }
 
     private void destroyedCoinRecord(string coinName)
-    {        
+    {
         string[] names = coinName.Split('n');
         int coinNumber;
+
         bool success = Int32.TryParse(names[1], out coinNumber);
         if (success)
         {
+            Debug.Log(coinNumber);
             destroyedCoinArray[coinNumber] = true;
         }
     }
 
     public void updateConsumedCoins()
     {
-        
-        
-        for (int i = 0; i < 28; i++) 
+        for (int i = 0; i < 29; i++)
         {
             if (destroyedCoinArray[i])
             {
