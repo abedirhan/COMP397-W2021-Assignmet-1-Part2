@@ -93,7 +93,7 @@ public class PlayerHealth : MonoBehaviour
                 Debug.Log("You won the game");
 
                 // Instead of loading gameover scene, we need to create a winning scene or something like pause menu that shows....
-                // "You won the game" and prompt user to quit or restart the game
+                // "You won the game" with a good graphics  and prompt user to quit or restart the game
                 SceneManager.LoadScene("GameOver");
                 
                 Cursor.lockState = CursorLockMode.Confined;
