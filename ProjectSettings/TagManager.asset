@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Enemy
   - level2Gate
+  - coin
   layers:
   - Default
   - TransparentFX

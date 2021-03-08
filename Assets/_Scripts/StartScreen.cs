@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/*Game Name: Save the King 
+ Unity game
+ Authors Name: Ayhan SAGLAM--Khadka, Subarna Bijaya- Vu, Hieu Phong
+ Date: 2021/02/10
+*/
 /// <summary>
 /// This scripts is used for moving between scenes
 /// </summary>
@@ -42,5 +46,10 @@ public class StartScreen : MonoBehaviour
 
     public void GoToLevel2() {
         SceneManager.LoadScene("Level2");
+    }
+
+    public void LoadGame()
+    {
+        SceneManager.LoadScene("Main");
     }
 }
